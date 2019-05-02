@@ -2,20 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FlightAddComponent } from './flight-add/flight-add.component';
-import { HotelAddComponent } from './hotel-add/hotel-add.component';
-import { TourAddComponent } from './tour-add/tour-add.component';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { FlightServiceService } from './flight-service.service';
+import { FlightService } from './flight-service.service';
+import { FlightComponent } from './flight-add/flight/flight.component';
+import { AirModule } from './air/air.module';
+import { AccomodationModule } from './accomodation/accomodation.module';
+import { ExcursionModule } from './excursion/excursion.module';
+import { HeaderComponent } from './header/header.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FlightAddComponent,
-    HotelAddComponent,
-    TourAddComponent
+    FlightComponent,
+    HeaderComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +26,12 @@ import { FlightServiceService } from './flight-service.service';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    FlightServiceService
+    AirModule,
+    AccomodationModule,
+    ExcursionModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [FlightService],
+  bootstrap: [AppComponent],
+  exports: [FlightComponent, ErrorComponent]
 })
 export class AppModule { }

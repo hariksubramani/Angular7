@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class FlightServiceService {
+export class FlightService {
 
   uri = 'http://localhost:4000/business';
 

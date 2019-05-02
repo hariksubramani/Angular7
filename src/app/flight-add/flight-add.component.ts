@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
-import { FlightServiceService } from '../flight-service.service';
+import { FlightService } from '../flight-service.service';
 
 @Component({
   selector: 'app-flight-add',
@@ -10,7 +10,7 @@ import { FlightServiceService } from '../flight-service.service';
 export class FlightAddComponent implements OnInit {
 
   angForm: FormGroup;
-  constructor(private fb: FormBuilder, private bs: FlightServiceService) {
+  constructor(private fb: FormBuilder, private bs: FlightService) {
     this.createForm();
   }
 
